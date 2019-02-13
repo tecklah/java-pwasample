@@ -1,0 +1,31 @@
+# Directories #
+build/
+bin/
+target/
+libs/
+your-first-pwapp-master/
+ 
+.DS_Store
+ 
+*.class
+ 
+# Package Files #
+*.jar
+*.war
+*.ear
+*.db
+
+.DS_Store
+.svn
+ 
+*.pydevproject
+.project
+.metadata
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
