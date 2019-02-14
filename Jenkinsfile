@@ -13,24 +13,19 @@ pipeline {
                 ''' 
             }
         }
-        stage('One') {
-            steps {
-                echo 'Hi'
-            }
-        }
-        stage('Two') {
+        stage('Approval') {
             steps {
                 input('Proceed?')
             }
         }
-       	stage('Three') {
-       		when {
-       			not {
-       				branch "master"
-       			}
-       		}
+ 		stage ('SCM Checkout') {
             steps {
-                echo 'Hello'
+                git 'https://github.com/tecklah/java-pwasample.git'
+            }
+        }
+		stage ('Build') {
+            steps {
+                sh 'mvn package' 
             }
         }
     }
