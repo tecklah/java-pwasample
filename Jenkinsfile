@@ -1,9 +1,27 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent any
+    tools {
+		maven 'apache-maven-3.6.0' 
+	}
     stages {
-        stage('build') {
+        stage('One') {
             steps {
-                sh 'mvn --version'
+                echo 'Hi'
+            }
+        }
+        stage('Two') {
+            steps {
+                input('Proceed?')
+            }
+        }
+       	stage('Three') {
+       		when {
+       			not {
+       				branch "master"
+       			}
+       		}
+            steps {
+                echo 'Hello'
             }
         }
     }
