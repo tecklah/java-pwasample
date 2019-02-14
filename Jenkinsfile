@@ -1,6 +1,18 @@
 pipeline {
     agent any
+    tools { 
+        maven 'Maven360' 
+        jdk 'jdk8' 
+    }
     stages {
+    	stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "JAVA_HOME = ${JAVA_HOME}"
+                ''' 
+            }
+        }
         stage('One') {
             steps {
                 echo 'Hi'
