@@ -28,5 +28,10 @@ pipeline {
                 sh 'mvn package' 
             }
         }
+        stage ('Deploy') {
+        	steps {
+        		sh curl --upload-file target/*.war -u deployer:deployer "http://localhost:9080/manager/text/deploy?path=/PwaSample&update=true"
+        	}
+        }
     }
 }
